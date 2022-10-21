@@ -1,6 +1,6 @@
 package grupo1;
 
-class JugadorSeleccion {
+class JugadorSeleccion implements Comparable<JugadorSeleccion> {
 
     private int dorsal;
     private String nombre;
@@ -42,6 +42,11 @@ class JugadorSeleccion {
     @Override
     public String toString() {
         return this.dorsal + "  --  " + this.nombre + "  --  " + this.demarcacion;
+    }
+
+    @Override
+    public int compareTo(JugadorSeleccion jugador) {
+        return this.dorsal - jugador.dorsal;
     }
 
 }
