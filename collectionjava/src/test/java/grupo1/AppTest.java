@@ -79,11 +79,102 @@ public class AppTest {
     public void deberiaAgregarJugadorPriorityQueue() {
 
         Queue<JugadorSeleccion> jugadores = new PriorityQueue<>();
-        JugadorSeleccion jugador = new JugadorSeleccion(1, "Messi", "Delantero");
-        jugadores.add(jugador);
-        
+
+        for (int i = 0; i < 23; i++) {
+            jugadores.add(new JugadorSeleccion(i, "Jugador " + i, "Delantero"));
+        }
+
+        assertTrue(jugadores.size() == 23);
 
     }
+
+    @Test
+    public void deberiaAgregarJugadoresConOffer(){
+
+        Queue<JugadorSeleccion> jugadores = new PriorityQueue<>();
+
+        for (int i = 0; i < 22; i++) {
+            jugadores.add(new JugadorSeleccion(i, "Jugador " + i, "Delantero"));
+        }
+
+        jugadores.offer(new JugadorSeleccion(10, "messi ", "central"));
+
+        assertTrue(jugadores.size() == 23);
+
+    }
+
+    @Test 
+    public void deveriaRemoverJugador(){
+
+        Queue<JugadorSeleccion> jugadores = new PriorityQueue<>();
+
+        for (int i = 0; i < 23; i++) {
+            jugadores.add(new JugadorSeleccion(i, "Jugador " + i, "Delantero"));
+        }
+
+        assertTrue(jugadores.size() == 23);
+
+        jugadores.remove();
+
+        assertTrue(jugadores.size() == 22);
+
+    }
+
+    @Test
+    public void deveriaRemoverYlacabezadelacola(){
+
+        Queue<JugadorSeleccion> jugadores = new PriorityQueue<>();
+
+        jugadores.poll();
+
+        assertTrue(jugadores.size() == 0);
+        assertTrue(jugadores.poll() == null);
+
+        for (int i = 0; i < 23; i++) {
+            jugadores.add(new JugadorSeleccion(i, "Jugador " + i, "Delantero"));
+        }
+
+        jugadores.poll();
+
+        assertTrue(jugadores.size() == 22);
+        
+    }
+
+    @Test
+    public void deberiabuscarsineliminarprimerelemento(){
+
+        Queue<JugadorSeleccion> jugadores = new PriorityQueue<>();
+        
+        JugadorSeleccion j1 = new JugadorSeleccion(0, "Jose", "centro");
+
+        jugadores.add(j1);
+
+        for (int i = 0; i < 22; i++) {
+            jugadores.add(new JugadorSeleccion(i, "Jugador " + i, "Delantero"));
+        }
+
+        jugadores.element();
+
+        assertEquals(jugadores.element(),j1);
+    }
+
+    @Test
+    public void deveriafuncionarusarpeek(){
+
+        Queue<JugadorSeleccion> jugadores = new PriorityQueue<>();
+        jugadores.peek();
+
+        assertTrue(jugadores.size() == 0);
+        assertTrue(jugadores.peek()== null);
+
+        JugadorSeleccion j1 = new JugadorSeleccion(0, "Jose", "centro");
+
+        jugadores.add(j1);
+
+        assertTrue(jugadores.size() == 1);
+
+    }
+
 
     @Test // Hash-Set                                 --------------- Thiago Inicio
     public void Test_HashSet_AgregarPaises() {
