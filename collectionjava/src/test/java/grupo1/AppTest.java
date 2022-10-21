@@ -1,7 +1,7 @@
 package grupo1;
 
 import java.util.*;
-
+import java.util.PriorityQueue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -256,6 +256,14 @@ public class AppTest
     assertEquals(pais1,  coleccionLinkedHash.primero());   // El primero objeto en mi lista LinkedHash
     }
 
-
+    @Test
+    public void debeAgregarJugadorPriorityQueue(){
+        Queue<String> cola = new PriorityQueue<String>();
+        
+        cola.add("Jugador 1");
+        cola.add("Jugador 2");
+        cola.add("Jugador 3");
+        
+    }
 
 }
