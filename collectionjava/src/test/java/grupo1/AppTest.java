@@ -1,7 +1,7 @@
 package grupo1;
 
 import java.util.*;
-
+import java.util.PriorityQueue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -196,9 +196,7 @@ public class AppTest {
         coleccionHash.push(pais1);
 
         assertEquals(5, coleccionHash.conteo()); // La cantidad de objetos en mi lista Hash
-        System.out.println(coleccionHash);
-        System.out.println(
-                "\nComo se puede ver no se mostraran de la misma manera en que se se anadieron los datos, tampoco se mostrara 2 veces el mismo objeto \nEsta ordenado aleatoriamente.");
+        
     }
 
     @Test
@@ -213,7 +211,7 @@ public class AppTest {
         coleccionHash.push(pais1); //Agrego objetos 
         coleccionHash.push(pais2);
         coleccionHash.push(pais3);
-
+        assertEquals(3, coleccionHash.conteo());
         coleccionHash.pop(pais1); //Remuevo objetos 
         coleccionHash.pop(pais3);
         assertEquals(1, coleccionHash.conteo());
@@ -233,7 +231,7 @@ public class AppTest {
         coleccionHash.push(pais2);
         coleccionHash.push(pais3);
 
-        assertEquals(pais2, coleccionHash.primero()); // El primero objeto en mi lista hash
+        assertEquals(pais1, coleccionHash.primero()); // El primero objeto en mi lista hash
     }
 
     @Test //Tree-Set 
@@ -256,9 +254,7 @@ public class AppTest {
         coleccionTree.push(pais1);
 
         assertEquals(5, coleccionTree.conteo()); // La cantidad de objetos en mi Tree
-        System.out.println(coleccionTree);
-        System.out.println(
-                "\nComo se puede ver no se mostraran de la misma manera en que se se anadieron los datos, tampoco se mostrara 2 veces el mismo objeto \nEsta ordenado alfabeticamente por el nombre del pais.");
+        
     }
 
     @Test
@@ -273,11 +269,11 @@ public class AppTest {
         coleccionTree.push(pais1); //Agrego objetos 
         coleccionTree.push(pais2);
         coleccionTree.push(pais3);
-
+        assertEquals(3, coleccionTree.conteo());
         coleccionTree.pop(pais1); //Remuevo objetos 
         coleccionTree.pop(pais3);
         assertEquals(1, coleccionTree.conteo());
-        System.out.println("\nSe removieron 2 de los 3 objetos anadidos");
+        
     }
 
     @Test
@@ -316,9 +312,7 @@ public class AppTest {
         coleccionLinkedHash.push(pais1);
 
         assertEquals(3, coleccionLinkedHash.conteo()); // La cantidad de objetos en mi lista LinkedHash
-        System.out.println(coleccionLinkedHash);
-        System.out.println(
-                "\nComo se puede ver no se mostraran de la misma manera en que se se anadieron los datos, tampoco se mostrara 2 veces el mismo objeto \nEsta ordenado por orden de entrada.");
+        
     }
 
     @Test
@@ -337,7 +331,7 @@ public class AppTest {
         coleccionLinkedHash.pop(pais1); //Remuevo objetos 
         coleccionLinkedHash.pop(pais3);
         assertEquals(1, coleccionLinkedHash.conteo());
-        System.out.println("\nSe removieron 2 de los 3 objetos anadidos.");
+        
     }
 
     @Test //--------------- Thiago Final
@@ -355,5 +349,7 @@ public class AppTest {
 
         assertEquals(pais1, coleccionLinkedHash.primero()); // El primero objeto en mi lista LinkedHash
     }
+
+
 
 }
